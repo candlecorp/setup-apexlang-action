@@ -1,0 +1,19 @@
+name: apex-install
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  apex-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install deno
+        uses: denolib/setup-deno@v1
+        with:
+          deno-version: v1.29.4
+      - name: Install ApexLang
+        run: deno install -A --unstable -f -n apex https://deno.land/x/apex_cli@v0.0.18/apex.ts
+      - name: Run Apex
+        run: apex --version
