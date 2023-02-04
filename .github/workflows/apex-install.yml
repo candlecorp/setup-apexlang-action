@@ -1,8 +1,6 @@
 name: apex-install
 on:
   push:
-    branches:
-      - master
 
 jobs:
   apex-install:
